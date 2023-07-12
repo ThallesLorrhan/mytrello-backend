@@ -1,5 +1,5 @@
 """
-WSGI config for trello project.
+WSGI config for mytrello-back project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
