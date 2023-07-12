@@ -21,7 +21,7 @@ SECRET_KEY = 'u&3va&+ye)j2-m1@t^99tvw@tggdy#mtcayv76r_dj)9as4*5$'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "mytrello-backend8.onrender.com",
+    "*",
 ]
 
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
