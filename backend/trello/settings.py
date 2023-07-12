@@ -25,9 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'u&3va&+ye)j2-m1@t^99tvw@tggdy#mtcayv76r_dj)9as4*5$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+    "http://thalleslorrhan.pythonanywhere.com",
+]
+
+CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
 
 
 # Application definition
@@ -137,6 +143,8 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'users.User'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -163,8 +171,13 @@ SWAGGER_SETTINGS = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
-
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6379
+REDIS_HOST = 'redis-14948.c308.sa-east-1-1.ec2.cloud.redislabs.com'
+REDIS_PORT = 14948
+REDIS_PASSWORD = '87tuqbRvxsVap71ptEbHukg0nw6XFzIx'
 REDIS_DB = 0
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "thalleslorrhan.pythonanywhere.com",
+]
