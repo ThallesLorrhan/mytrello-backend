@@ -1,18 +1,9 @@
 import os
 from datetime import timedelta
-
 from pathlib import Path
-from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'trello.settings')
-
-application = get_asgi_application()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'u&3va&+ye)j2-m1@t^99tvw@tggdy#mtcayv76r_dj)9as4*5$'
@@ -21,11 +12,10 @@ SECRET_KEY = 'u&3va&+ye)j2-m1@t^99tvw@tggdy#mtcayv76r_dj)9as4*5$'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "*",
+    '*',
 ]
 
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
-
 
 # Application definition
 
@@ -41,7 +31,8 @@ INSTALLED_APPS = [
     'projects.apps.ProjectsConfig',
     'boards.apps.BoardsConfig',
     'drf_yasg',
-    'corsheaders'
+    'corsheaders',
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +66,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'trello.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -87,7 +77,8 @@ DATABASES = {
 }
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend', 'users.auth.EmailBackend']
+    'django.contrib.auth.backends.ModelBackend', 'users.auth.EmailBackend'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -107,7 +98,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -120,7 +110,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -141,14 +130,13 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
 }
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=360)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=360),
 }
-
 
 SWAGGER_SETTINGS = {
     'token_type': 'Bearer',
@@ -156,12 +144,16 @@ SWAGGER_SETTINGS = {
         'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',
-            'in': 'header'
-        }
-    }
+            'in': 'header',
+        },
+    },
 }
 
 REDIS_HOST = 'redis-14948.c308.sa-east-1-1.ec2.cloud.redislabs.com'
 REDIS_PORT = 14948
 REDIS_PASSWORD = '87tuqbRvxsVap71ptEbHukg0nw6XFzIx'
 REDIS_DB = 0
+
+# Gunicorn settings
+bind = '0.0.0.0:8000'
+workers = 2
