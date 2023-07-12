@@ -2,7 +2,11 @@ import os
 from datetime import timedelta
 
 from pathlib import Path
+from django.core.asgi import get_asgi_application
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'trello.settings')
+
+application = get_asgi_application()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,7 +21,7 @@ SECRET_KEY = 'u&3va&+ye)j2-m1@t^99tvw@tggdy#mtcayv76r_dj)9as4*5$'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "mytrello-backend7.onrender.com",
+    "mytrello-backend8.onrender.com",
 ]
 
 CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
