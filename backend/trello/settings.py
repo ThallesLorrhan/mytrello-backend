@@ -64,7 +64,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'trello.wsgi.application'
+WSGI_APPLICATION = 'mytrello-back.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
