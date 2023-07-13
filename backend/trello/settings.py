@@ -64,7 +64,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mytrello-back.wsgi.application'
+WSGI_APPLICATION = 'trello.wsgi.application'
+
 
 
 # Database
