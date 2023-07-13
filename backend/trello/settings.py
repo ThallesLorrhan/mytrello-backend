@@ -64,8 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.trello.wsgi.application'
-
+WSGI_APPLICATION = 'trello.wsgi.application'
  
 
 
