@@ -1,1 +1,2 @@
-web: gunicorn backend.trello.wsgi --log-file-
+web: gunicorn backend.trello.wsgi --log-file -
+
