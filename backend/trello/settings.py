@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://exe.com']
+CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS
 
 # Application definition
 
@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'gunicorn',
-
+    
 
     # Local apps
     'users',
