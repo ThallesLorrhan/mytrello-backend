@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # Local apps
     'users',
     'projects',
-    "board"
+    "boards"
 ]
 
 
