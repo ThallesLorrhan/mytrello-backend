@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     
 
     # Local apps
-    'users',
-    'projects',
-    "boards"
+    'users.apps.UsersConfig',
+    'projects.apps.ProjectsConfig',
+    "boards.apps.BoardsConfig"
 ]
 
 
