@@ -13,6 +13,6 @@ urlpatterns = [
     path('labels/<int:pk>/', LabelDetail.as_view()),
     path('comments/', CommentList.as_view()),
     path('comments/<int:pk>/', CommentDetail.as_view()),
-    path('attachments/', AttachmentList.as_view()),
-    path('attachments/<int:pk>/', AttachmentDetail.as_view()),
+    # path('attachments/', AttachmentList.as_view()),
+    # path('attachments/<int:pk>/', AttachmentDetail.as_view()),
 ]
